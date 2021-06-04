@@ -12,7 +12,7 @@ public class Shuttle {
     private Long shuttleId;
     private String namaShuttel;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn (referencedColumnName = "kota_id")
     private Kota kotaId;
 

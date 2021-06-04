@@ -14,7 +14,7 @@ public class User {
     private String password;
     private String nama;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn (referencedColumnName = "shuttle_id")
     private Shuttle shuttleId;
     private String level;

@@ -1,61 +1,19 @@
-package com.rzlproject.travelappsservice.entity;
+package com.rzlproject.travelappsservice.model;
 
-import javax.persistence.*;
+import com.rzlproject.travelappsservice.entity.JamKeberangkatan;
+import com.rzlproject.travelappsservice.entity.Shuttle;
+import com.rzlproject.travelappsservice.entity.User;
 
-@Entity
-@Table(name = "transaksi_tiket_tbl")
-public class TransaksiTiket {
+public class TransaksiRequest {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long transaksiId;
-
-    @ManyToOne
-    @JoinColumn (referencedColumnName = "user_id")
     private User userId;
     private Integer tanggal;
-
-    @ManyToOne
-    @JoinColumn (referencedColumnName = "jam_keberangkatan_id")
     private JamKeberangkatan jamKeberangkatanId;
-
-    @ManyToOne
-    @JoinColumn (referencedColumnName = "shuttle_id")
     private Shuttle tujuanShuttelId;
-
-    @ManyToOne
-    @JoinColumn (referencedColumnName = "shuttle_id")
     private Shuttle asalShuttelId;
     private Integer nomorKursi;
     private String namaPenumpang;
     private String nomorHP;
-
-    @ManyToOne
-    @JoinColumn (referencedColumnName = "harga_id")
-    private Harga harga;
-
-    public TransaksiTiket() {
-    }
-
-    public TransaksiTiket(User userId, Integer tanggal, JamKeberangkatan jamKeberangkatanId, Shuttle tujuanShuttelId, Shuttle asalShuttelId, Integer nomorKursi, String namaPenumpang, String nomorHP, Harga harga) {
-        this.userId = userId;
-        this.tanggal = tanggal;
-        this.jamKeberangkatanId = jamKeberangkatanId;
-        this.tujuanShuttelId = tujuanShuttelId;
-        this.asalShuttelId = asalShuttelId;
-        this.nomorKursi = nomorKursi;
-        this.namaPenumpang = namaPenumpang;
-        this.nomorHP = nomorHP;
-        this.harga = harga;
-    }
-
-    public Long getTransaksiId() {
-        return transaksiId;
-    }
-
-    public void setTransaksiId(Long transaksiId) {
-        this.transaksiId = transaksiId;
-    }
 
     public User getUserId() {
         return userId;
@@ -119,13 +77,5 @@ public class TransaksiTiket {
 
     public void setNomorHP(String nomorHP) {
         this.nomorHP = nomorHP;
-    }
-
-    public Harga getHarga() {
-        return harga;
-    }
-
-    public void setHarga(Harga harga) {
-        this.harga = harga;
     }
 }
