@@ -32,21 +32,21 @@ public class TransaksiServiceImpl implements TransaksiService {
     @Transactional
     public TransaksiTiket addTransaction(TransaksiRequest transaksiRequest) {
 
-        Optional<User> findUserId = userRepository.findById(transaksiRequest.getUserId().getUserId());
+        Optional<User> findUserId = userRepository.findById(transaksiRequest.getUserId());
         if (findUserId.isPresent()){
             TransaksiTiket transaksiTiket = new TransaksiTiket();
             transaksiTiket.setUserId(findUserId.get());
             transaksiTiket.setTanggal(transaksiRequest.getTanggal());
 
-            Optional<JamKeberangkatan> findJamKeberangkatan = jamKeberangkatanRepository.findById(transaksiRequest.getJamKeberangkatanId().getJamKeberangkatanId());
+            Optional<JamKeberangkatan> findJamKeberangkatan = jamKeberangkatanRepository.findById(transaksiRequest.getJamKeberangkatanId());
             if (findJamKeberangkatan.isPresent()){
                 transaksiTiket.setJamKeberangkatanId(findJamKeberangkatan.get());
 
-                Optional<Shuttle> findShuttleTujuan = shuttelRepository.findById(transaksiRequest.getTujuanShuttelId().getShuttleId());
+                Optional<Shuttle> findShuttleTujuan = shuttelRepository.findById(transaksiRequest.getTujuanShuttelId());
                 if (findShuttleTujuan.isPresent()){
                     transaksiTiket.setTujuanShuttelId(findShuttleTujuan.get());
 
-                    Optional<Shuttle> findShuttelAsal = shuttelRepository.findById(transaksiRequest.getAsalShuttelId().getShuttleId());
+                    Optional<Shuttle> findShuttelAsal = shuttelRepository.findById(transaksiRequest.getAsalShuttelId());
                     if (findShuttelAsal.isPresent()){
                         transaksiTiket.setAsalShuttelId(findShuttelAsal.get());
                         transaksiTiket.setNomorKursi(transaksiRequest.getNomorKursi());

@@ -11,6 +11,8 @@ List<User> getAllUser ();
 
 User getUserById(Long userId);
 
+User addUser(UserRequest userRequest);
+
 User updateUser(UserRequest userRequest, Long userId);
 
 String deleteById(Long userId);

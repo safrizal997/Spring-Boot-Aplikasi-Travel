@@ -6,20 +6,20 @@ import com.rzlproject.travelappsservice.entity.User;
 
 public class TransaksiRequest {
 
-    private User userId;
+    private Long userId;
     private Integer tanggal;
-    private JamKeberangkatan jamKeberangkatanId;
-    private Shuttle tujuanShuttelId;
-    private Shuttle asalShuttelId;
+    private Long jamKeberangkatanId;
+    private Long tujuanShuttelId;
+    private Long asalShuttelId;
     private Integer nomorKursi;
     private String namaPenumpang;
     private String nomorHP;
 
-    public User getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(User userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
@@ -31,27 +31,27 @@ public class TransaksiRequest {
         this.tanggal = tanggal;
     }
 
-    public JamKeberangkatan getJamKeberangkatanId() {
+    public Long getJamKeberangkatanId() {
         return jamKeberangkatanId;
     }
 
-    public void setJamKeberangkatanId(JamKeberangkatan jamKeberangkatanId) {
+    public void setJamKeberangkatanId(Long jamKeberangkatanId) {
         this.jamKeberangkatanId = jamKeberangkatanId;
     }
 
-    public Shuttle getTujuanShuttelId() {
+    public Long getTujuanShuttelId() {
         return tujuanShuttelId;
     }
 
-    public void setTujuanShuttelId(Shuttle tujuanShuttelId) {
+    public void setTujuanShuttelId(Long tujuanShuttelId) {
         this.tujuanShuttelId = tujuanShuttelId;
     }
 
-    public Shuttle getAsalShuttelId() {
+    public Long getAsalShuttelId() {
         return asalShuttelId;
     }
 
-    public void setAsalShuttelId(Shuttle asalShuttelId) {
+    public void setAsalShuttelId(Long asalShuttelId) {
         this.asalShuttelId = asalShuttelId;
     }
 

@@ -10,7 +10,7 @@ public class Shuttle {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "shuttle_id")
     private Long shuttleId;
-    private String namaShuttel;
+    private String namaShuttle;
 
     @ManyToOne
     @JoinColumn (referencedColumnName = "kota_id")
@@ -19,8 +19,8 @@ public class Shuttle {
     public Shuttle() {
     }
 
-    public Shuttle(String namaShuttel, Kota kotaId) {
-        this.namaShuttel = namaShuttel;
+    public Shuttle(String namaShuttle, Kota kotaId) {
+        this.namaShuttle = namaShuttle;
         this.kotaId = kotaId;
     }
 
@@ -32,12 +32,12 @@ public class Shuttle {
         this.shuttleId = shuttleId;
     }
 
-    public String getNamaShuttel() {
-        return namaShuttel;
+    public String getNamaShuttle() {
+        return namaShuttle;
     }
 
-    public void setNamaShuttel(String namaShuttel) {
-        this.namaShuttel = namaShuttel;
+    public void setNamaShuttle(String namaShuttle) {
+        this.namaShuttle = namaShuttle;
     }
 
     public Kota getKotaId() {

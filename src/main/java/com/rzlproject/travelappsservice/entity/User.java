@@ -18,7 +18,7 @@ public class User {
     @JoinColumn (referencedColumnName = "shuttle_id")
     private Shuttle shuttleId;
     private String level;
-    private Byte isActive;
+    private Byte isActive = 1;
 
     public User() {
     }

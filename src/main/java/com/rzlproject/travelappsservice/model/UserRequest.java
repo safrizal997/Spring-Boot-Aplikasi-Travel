@@ -7,7 +7,8 @@ public class UserRequest {
     private String userName;
     private String password;
     private String nama;
-    private Shuttle shuttleId;
+    private Long shuttleId;
+    private String Level;
 
     public String getUserName() {
         return userName;
@@ -33,11 +34,19 @@ public class UserRequest {
         this.nama = nama;
     }
 
-    public Shuttle getShuttleId() {
+    public Long getShuttleId() {
         return shuttleId;
     }
 
-    public void setShuttleId(Shuttle shuttleId) {
+    public void setShuttleId(Long shuttleId) {
         this.shuttleId = shuttleId;
+    }
+
+    public String getLevel() {
+        return Level;
+    }
+
+    public void setLevel(String level) {
+        Level = level;
     }
 }
