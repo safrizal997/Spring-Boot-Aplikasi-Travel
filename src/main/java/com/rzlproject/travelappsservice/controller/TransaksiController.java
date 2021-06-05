@@ -5,10 +5,9 @@ import com.rzlproject.travelappsservice.model.TransaksiRequest;
 import com.rzlproject.travelappsservice.service.TransaksiService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(path = "/api/v1/transaction", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -22,5 +21,29 @@ public class TransaksiController {
         return transaksiService.addTransaction(transaksiRequest);
     }
 
+    @GetMapping
+    public List<TransaksiTiket> getAll(){
+        return transaksiService.getAll();
+    }
+
+    @GetMapping(path = "/{transaksiId}")
+    public TransaksiTiket getById(@PathVariable("transaksiId") Long transaksiId){
+        return transaksiService.getById(transaksiId);
+    }
+
+    @PutMapping(path = "/{transaksiId")
+    public TransaksiTiket editTransaction (TransaksiRequest transaksiRequest, @PathVariable("transaksiId") Long transaksiId){
+        return transaksiService.editTransaction(transaksiRequest, transaksiId);
+    }
+
+    @DeleteMapping(path = "/{transaksiId}")
+    public String deleteTransactionById (@PathVariable("transaksiId") Long transaksiId){
+        return transaksiService.deleteTransactionById(transaksiId);
+    }
+
+    @DeleteMapping
+    public String deleteAllTransaction(){
+        return transaksiService.deleteAllTransaction();
+    }
 
 }
