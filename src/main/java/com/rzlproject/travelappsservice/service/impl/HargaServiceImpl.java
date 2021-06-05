@@ -1,6 +1,7 @@
 package com.rzlproject.travelappsservice.service.impl;
 
 import com.rzlproject.travelappsservice.entity.Harga;
+import com.rzlproject.travelappsservice.model.HargaRequest;
 import com.rzlproject.travelappsservice.repository.HargaRepository;
 import com.rzlproject.travelappsservice.service.HargaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,13 +22,13 @@ public class HargaServiceImpl implements HargaService {
     }
 
     @Override
-    public Harga addHarga(Harga hargaRequest) {
+    public Harga addHarga(HargaRequest hargaRequest) {
         Harga harga = new Harga();
         return saveHarga(hargaRequest, harga);
     }
 
     @Override
-    public Harga updateHarga(Harga hargaRequest, Long hargaId) {
+    public Harga updateHarga(HargaRequest hargaRequest, Long hargaId) {
         Optional<Harga> findHargaId = hargaRepository.findById(hargaId);
         if (findHargaId.isPresent()){
             Harga harga = findHargaId.get();
@@ -36,7 +37,7 @@ public class HargaServiceImpl implements HargaService {
         return null;
     }
 
-    private Harga saveHarga (Harga hargaRequest, Harga harga){
+    private Harga saveHarga (HargaRequest hargaRequest, Harga harga){
         harga.setHarga(hargaRequest.getHarga());
         return hargaRepository.save(harga);
     }

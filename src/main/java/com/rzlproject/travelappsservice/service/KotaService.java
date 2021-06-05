@@ -1,6 +1,7 @@
 package com.rzlproject.travelappsservice.service;
 
 import com.rzlproject.travelappsservice.entity.Kota;
+import com.rzlproject.travelappsservice.model.KotaRequest;
 
 import java.util.List;
 
@@ -10,7 +11,7 @@ public interface KotaService {
 
     Kota getKotaById(Long kotaId);
 
-    Kota addKota(Kota kota);
+    Kota addKota(KotaRequest kotaRequest);
 
     String deleteKotaById(Long id);
 }

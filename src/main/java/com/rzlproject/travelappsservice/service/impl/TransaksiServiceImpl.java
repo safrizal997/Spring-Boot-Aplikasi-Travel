@@ -50,14 +50,14 @@ public class TransaksiServiceImpl implements TransaksiService {
     @Override
     public TransaksiTiket editTransaction(TransaksiRequest transaksiRequest, Long transaksiId) {
         Optional<TransaksiTiket> findTransaksiId = transaksiRepository.findById(transaksiId);
-        if (findTransaksiId.isPresent()){
+        if (findTransaksiId.isPresent()) {
             TransaksiTiket transaksiTiket = findTransaksiId.get();
-            return saveTransaction(transaksiRequest,transaksiTiket);
+            return saveTransaction(transaksiRequest, transaksiTiket);
         }
         return null;
     }
 
-    private TransaksiTiket saveTransaction (TransaksiRequest transaksiRequest, TransaksiTiket transaksiTiket){
+    private TransaksiTiket saveTransaction(TransaksiRequest transaksiRequest, TransaksiTiket transaksiTiket) {
         Optional<User> findUserId = userRepository.findById(transaksiRequest.getUserId());
         if (findUserId.isPresent()) {
             transaksiTiket.setUserId(findUserId.get());
@@ -101,7 +101,7 @@ public class TransaksiServiceImpl implements TransaksiService {
     @Override
     public String deleteTransactionById(Long transaksiId) {
         Optional<TransaksiTiket> findTransaksiId = transaksiRepository.findById(transaksiId);
-        if (findTransaksiId.isPresent()){
+        if (findTransaksiId.isPresent()) {
             transaksiRepository.deleteById(transaksiId);
             return "DELETE COMPLETE";
         }

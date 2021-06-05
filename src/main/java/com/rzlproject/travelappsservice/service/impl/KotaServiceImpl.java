@@ -1,6 +1,7 @@
 package com.rzlproject.travelappsservice.service.impl;
 
 import com.rzlproject.travelappsservice.entity.Kota;
+import com.rzlproject.travelappsservice.model.KotaRequest;
 import com.rzlproject.travelappsservice.repository.KotaRepository;
 import com.rzlproject.travelappsservice.service.KotaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,9 +28,9 @@ public class KotaServiceImpl implements KotaService {
     }
 
     @Override
-    public Kota addKota(Kota kota) {
+    public Kota addKota(KotaRequest kotaRequest) {
         Kota kotaToSave = new Kota();
-        kotaToSave.setNamaKota(kota.getNamaKota());
+        kotaToSave.setNamaKota(kotaRequest.getKota());
         return kotaRepository.save(kotaToSave);
     }
 

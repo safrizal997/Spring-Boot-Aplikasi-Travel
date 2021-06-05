@@ -1,6 +1,7 @@
 package com.rzlproject.travelappsservice.service.impl;
 
 import com.rzlproject.travelappsservice.entity.JamKeberangkatan;
+import com.rzlproject.travelappsservice.model.JamKeberangkatanRequest;
 import com.rzlproject.travelappsservice.repository.JamKeberangkatanRepository;
 import com.rzlproject.travelappsservice.service.JamKeberangkaanService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,13 +22,13 @@ public class JamKeberangkatanServiceImpl implements JamKeberangkaanService {
     }
 
     @Override
-    public JamKeberangkatan addJamKeberangkatan(JamKeberangkatan jamKeberangkatanRequest) {
+    public JamKeberangkatan addJamKeberangkatan(JamKeberangkatanRequest jamKeberangkatanRequest) {
         JamKeberangkatan jamKeberangkatan = new JamKeberangkatan();
         return saveJamKeberangkatan(jamKeberangkatanRequest, jamKeberangkatan);
     }
 
     @Override
-    public JamKeberangkatan editJamKeberangkatan(JamKeberangkatan jamKeberangkatanRequest, Long jamId) {
+    public JamKeberangkatan editJamKeberangkatan(JamKeberangkatanRequest jamKeberangkatanRequest, Long jamId) {
         Optional<JamKeberangkatan> findJamId = jamKeberangkatanRepository.findById(jamId);
         if (findJamId.isPresent()){
             JamKeberangkatan jamKeberangkatan = findJamId.get();
@@ -36,7 +37,7 @@ public class JamKeberangkatanServiceImpl implements JamKeberangkaanService {
         return null;
     }
 
-    private JamKeberangkatan saveJamKeberangkatan (JamKeberangkatan jamKeberangkatanRequest, JamKeberangkatan jamKeberangkatan){
+    private JamKeberangkatan saveJamKeberangkatan (JamKeberangkatanRequest jamKeberangkatanRequest, JamKeberangkatan jamKeberangkatan){
         jamKeberangkatan.setJam(jamKeberangkatanRequest.getJam());
         return jamKeberangkatanRepository.save(jamKeberangkatan);
     }
