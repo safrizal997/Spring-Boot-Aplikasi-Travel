@@ -11,6 +11,8 @@ public interface TransaksiService {
 
     TransaksiTiket getById(Long transaksiId);
 
+    List<TransaksiTiket> getByUserId(Long userId);
+
     TransaksiTiket addTransaction (TransaksiRequest transaksiRequest);
 
     TransaksiTiket editTransaction (TransaksiRequest transaksiRequest, Long transaksiId);

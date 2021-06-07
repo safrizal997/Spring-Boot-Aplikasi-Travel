@@ -41,6 +41,11 @@ public class TransaksiServiceImpl implements TransaksiService {
     }
 
     @Override
+    public List<TransaksiTiket> getByUserId(Long userId) {
+        return transaksiRepository.findByUserIdUserId(userId);
+    }
+
+    @Override
     @Transactional
     public TransaksiTiket addTransaction(TransaksiRequest transaksiRequest) {
         TransaksiTiket transaksiTiket = new TransaksiTiket();

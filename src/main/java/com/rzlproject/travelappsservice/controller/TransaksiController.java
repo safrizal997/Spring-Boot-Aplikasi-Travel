@@ -34,6 +34,11 @@ public class TransaksiController {
         return transaksiService.getById(transaksiId);
     }
 
+    @GetMapping(path = "/{userId}/transactions")
+    public List<TransaksiTiket> getByUserId(@PathVariable("userId") Long userId){
+        return transaksiService.getByUserId(userId);
+    }
+
     @PutMapping(path = "/{transaksiId}")
     public TransaksiTiket editTransaction(TransaksiRequest transaksiRequest, @PathVariable("transaksiId") Long transaksiId) {
         return transaksiService.editTransaction(transaksiRequest, transaksiId);
